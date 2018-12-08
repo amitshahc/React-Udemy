@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 const person = (props) => {
     return (
         <div>
-            <p>I am a {props.name} Constant Person. Age: {props.age} </p>
+            <p onClick={props.click}>I am a {props.name} Constant Person. Age: {props.age} </p>
             <p>{props.children}</p>
+            <input type="text" onChange={props.change} value={props.name} />
         </div>        
     );
 }
