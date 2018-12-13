@@ -36,6 +36,13 @@ class App extends Component {
     this.setState({showPerson: !show });
   }
 
+  deletePerson = (personIndex) => {
+    console.log(personIndex);
+    let persons = this.state.persons.slice();
+    persons.splice(personIndex, 1);
+    this.setState({ persons: persons });
+  }
+
   render() {
 
     const button_style = {
@@ -48,8 +55,8 @@ class App extends Component {
     if (this.state.showPerson) {
       persons = (<div>
         {
-          this.state.persons.map(person => {
-            return <Person name={person.name} age={person.age} />
+          this.state.persons.map( (person, index) => {
+            return <Person name={person.name} age={person.age} click={() => this.deletePerson(index)} />
           })
         }          
       </div>
