@@ -63,6 +63,7 @@ class App extends Component {
     };
 
     const cssClass = [];
+    let h1Class = moduleStyles.bgColor;
 
     if (this.state.persons.length <= 2) {
       cssClass.push('red');
@@ -70,6 +71,7 @@ class App extends Component {
       button_style[":hover"] = {
         backgroundColor: 'lightyellow'
       }
+      h1Class = moduleStyles.bgColorRed;
     }
     if (this.state.persons.length <= 1) {
       cssClass.push('bold');
@@ -94,7 +96,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1 className={moduleStyles.bgColor}>My React App</h1>
+        <h1 className={h1Class}>My React App</h1>
         <p className={cssClass.join(' ')}>This is paragraph.</p>
         <button onClick={this.togglePersons} style={button_style}>Click</button>
         {persons}        

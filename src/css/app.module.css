@@ -1,3 +1,15 @@
 .bgColor{
     background-color: blueviolet;
 }
+
+.bgColor:hover{
+    background-color: cyan;
+}
+
+.bgColorRed{
+    background-color: brown;
+}
+
+.bgColorRed:hover{
+    background-color: burlywood;
+}
