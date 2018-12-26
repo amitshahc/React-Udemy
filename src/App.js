@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 import Person from './Person/Person';
 import './App.css';
-import person from './Person/Person';
+import moduleStyles from './css/app.module.css';
+// import person from './Person/Person';
 
 class App extends Component {
   state = {
@@ -93,7 +94,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>My React App</h1>
+        <h1 className={moduleStyles.bgColor}>My React App</h1>
         <p className={cssClass.join(' ')}>This is paragraph.</p>
         <button onClick={this.togglePersons} style={button_style}>Click</button>
         {persons}        
