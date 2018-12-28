@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Person from './Person/Person';
+import Person from '../components/Persons/Person/Person';
 import './App.css';
-import person from './Person/Person';
+//import person from '../components/Persons/Person/Person';
 
 class App extends Component {
   state = {
@@ -62,11 +62,10 @@ class App extends Component {
     if (this.state.showPerson) {
       persons = (<div>
         {
-          this.state.persons.map( (person, index) => {
-            return <Person
-              name={person.name}
-              age={person.age}
-              key={person.id}
+          this.state.persons.map((person, index) => {
+            return <Person   
+              key={person.id}  
+              person={person}
               click={() => this.deletePerson(index)}
               change={(event) => this.nameChangeHandler(person.id, event)} />
           })
