@@ -8,7 +8,7 @@ const cockpit = (props) => {
       
     return (
         <div>
-            <h1>My React App</h1>
+            <h1>{props.appTitle}</h1>
             <button onClick={props.click} style={button_style}>Click</button>            
         </div>
     );
