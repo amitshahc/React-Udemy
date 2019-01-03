@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons';
 import './App.css';
-//import person from '../components/Persons/Person/Person';
+//import person from '../components/Persons/Persons/Person';
 
 class App extends Component {
   state = {
@@ -22,7 +22,7 @@ class App extends Component {
     });
   }
 
-  nameChangeHandler = (id, event) => {
+  nameChangeHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex((p) => {
       return p.id === id;
     })
@@ -60,18 +60,15 @@ class App extends Component {
     let persons = null;
 
     if (this.state.showPerson) {
-      persons = (<div>
-        {
-          this.state.persons.map((person, index) => {
-            return <Person   
-              key={person.id}  
-              person={person}
-              click={() => this.deletePerson(index)}
-              change={(event) => this.nameChangeHandler(person.id, event)} />
-          })
-        }          
-      </div>
-      )
+      persons = (
+        <div>
+          <Persons            
+            persons={this.state.persons}
+            clicked={this.deletePerson}
+            changed={this.nameChangeHandler}
+          />
+        </div>
+      );
     }
     return (
       <div className="App">
