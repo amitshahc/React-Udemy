@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 import './App.css';
 //import person from '../components/Persons/Persons/Person';
 
@@ -51,30 +52,25 @@ class App extends Component {
   }
 
   render() {
-
-    const button_style = {
-      border: '1px solid blue',
-      padding: '5px'
-    };
-
     let persons = null;
 
     if (this.state.showPerson) {
-      persons = (
-        <div>
+      persons = (        
           <Persons            
             persons={this.state.persons}
             clicked={this.deletePerson}
             changed={this.nameChangeHandler}
-          />
-        </div>
+          />        
       );
     }
     return (
       <div className="App">
-        <h1>My React App</h1>
-        <button onClick={this.togglePersons} style={button_style}>Click</button>
-        {persons}        
+        <Cockpit
+          showPerson={this.state.showPerson}
+          persons={this.state.persons}
+          click={this.togglePersons}
+        />
+        {persons}
       </div>
     );
   }
